@@ -1,40 +1,53 @@
-# BMI Calculator in Python
+import tkinter as tk
+from tkinter import messagebox
 
-def calculate_bmi(weight, height):
-    """Calculate BMI using the formula: BMI = weight (kg) / (height (m))^2"""
-    bmi = weight / (height ** 2)
-    return bmi
-
-def classify_bmi(bmi):
-    """Classify the BMI value into categories."""
-    if bmi < 18.5:
-        return "Underweight"
-    elif 18.5 <= bmi < 24.9:
-        return "Normal weight"
-    elif 25 <= bmi < 29.9:
-        return "Overweight"
-    else:
-        return "Obese"
-
-def main():
-    print("Welcome to the BMI Calculator!")
-
+def calculate_bmi():
     try:
-        weight = float(input("Enter your weight in kilograms (kg): "))
-        height = float(input("Enter your height in meters (m): "))
+        weight = float(weight_entry.get())
+        height = float(height_entry.get())
 
         if weight <= 0 or height <= 0:
-            print("Weight and height must be positive numbers.")
+            messagebox.showerror("Input Error", "Weight and height must be positive numbers.")
             return
 
-        bmi = calculate_bmi(weight, height)
-        category = classify_bmi(bmi)
+        bmi = weight / (height ** 2)
 
-        print(f"\nYour BMI is: {bmi:.2f}")
-        print(f"You are classified as: {category}")
+        if bmi < 18.5:
+            category = "Underweight"
+        elif 18.5 <= bmi < 24.9:
+            category = "Normal weight"
+        elif 25 <= bmi < 29.9:
+            category = "Overweight"
+        else:
+            category = "Obese"
+
+        result_label.config(text=f"BMI: {bmi:.2f} ({category})")
 
     except ValueError:
-        print("Please enter valid numerical values.")
+        messagebox.showerror("Input Error", "Please enter valid numerical values.")
 
-if __name__ == "__main__":
-    main()
+# GUI Window
+root = tk.Tk()
+root.title("BMI Calculator")
+root.geometry("300x250")
+root.resizable(False, False)
+
+# Labels and Entry Boxes
+tk.Label(root, text="Enter your weight (kg):").pack(pady=(10, 0))
+weight_entry = tk.Entry(root)
+weight_entry.pack(pady=5)
+
+tk.Label(root, text="Enter your height (m):").pack()
+height_entry = tk.Entry(root)
+height_entry.pack(pady=5)
+
+# Calculate Button
+tk.Button(root, text="Calculate BMI", command=calculate_bmi).pack(pady=10)
+
+# Result Display
+result_label = tk.Label(root, text="", font=("Arial", 12, "bold"))
+result_label.pack(pady=10)
+
+# Start GUI loop
+root.mainloop()
+
