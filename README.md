@@ -7,23 +7,20 @@ This application offers a range of features: a graphical interface where you can
 
 To run the program, first make sure that Python 3 is installed on your system. You can check by opening a terminal or command prompt and typing python --version. If Python is installed, you should see something like Python 3.10.5. Save the code in a file named app.py. Then, open your terminal, navigate to the folder where the file is saved, and run the following command:
 
-nginx
 Copy
 Edit
-python app.py
+{python app.py}
 Or, if that doesn’t work:
 
-nginx
 Copy
 Edit
-python3 app.py
+{python3 app.py}
 A window will open where you can enter your weight and height to get your BMI and health tips.
 
 This program requires Python 3.x and Tkinter, which usually comes pre-installed with Python. If you’re using Linux and Tkinter is missing, you can install it using sudo apt-get install python3-tk.
 
 For example, if your height is 1.75 meters and your weight is 70 kg, the program will show:
 
-vbnet
 Copy
 Edit
 🙂 Your BMI is: 22.86
