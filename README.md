@@ -22,15 +22,15 @@ You should see something like: Python 3.10.5 ,
 STEP 2: Save the code
 Save the Python code in a file named:
 Copy:
-    {bmi_calculator.py}
+    {app.py}
 Make sure the file has the .py extension,
 STEP 3: Run the program
 Open a terminal or command prompt, go to the folder where the file is saved, and run:
 Copy:
-   {python bmi_calculator.py}
+   {python app.py}
 or (if the above doesn’t work):
 Copy:
-   {python3 bmi_calculator.py}
+   {python3 app.py}
 A window will open where you can enter your weight and height.
 📷 Screenshot
 (You can add an image of the app here later)
